@@ -1,7 +1,5 @@
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -10,8 +8,8 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  username  String   @unique
+  id        String     @id @default(cuid())
+  username  String     @unique
   password  String
   recipes   Recipe[]
   favorites Favorite[]
@@ -28,7 +26,6 @@ model Recipe {
   dateCreated DateTime   @default(now())
   favorites   Favorite[]
 }
-
 
 model Favorite {
   id       String @id @default(cuid())
