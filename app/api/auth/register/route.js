@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '~/lib/prisma'
+import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import ERROR from '~/lib/error'
+import ERROR from '@/lib/error'
 
 export const POST = async request => {
   try {
