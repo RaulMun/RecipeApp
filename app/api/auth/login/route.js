@@ -11,7 +11,7 @@ export const POST = async request => {
 
     const user = await prisma.user.findUnique({ where: { username } })
     if (!user) return ERROR.INVALID_FIELDS()
-    if (!user.active) return ERROR.USER_INACTIVE()
+    if (user.active === false) return ERROR.USER_INACTIVE()
       
     const isPasswordValid = await bcrypt.compare(password, user.password)
     if (!isPasswordValid) return ERROR.INVALID_FIELDS()
